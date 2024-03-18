@@ -1,0 +1,14 @@
+<h2 class="mb-4 pt-2 pb-2">Home</h2>
+
+<div class="row">
+  <% @students.each do |student| %>
+    <%= render 'student_card', student: student, update_all_button: false %>
+
+  <% end %>
+</div>
+
+<div class="row">
+  <div class="col text-center">
+    <%= link_to 'Add Student', new_student_path, class: 'btn btn-outline-success' %>
+  </div>
+</div>

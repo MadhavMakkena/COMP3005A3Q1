@@ -1,0 +1,20 @@
+
+<div class="col-md-4 mb-4 p-4">
+  <div class="card shadow-sm">
+    <%= link_to student_path(student), class: "text-decoration-none" do %>
+      <div class="card-body">
+        <h5 class="card-title text-body" style="display: inline;"><%= student.full_name %></h5>
+        <span class="text-muted" style="font-size: 0.7em;"> - <%= student.student_id %></span>
+        <p class="card-text text-body"><%= student.email %></p>
+        <p class="card-text"><small class="text-body"><%= student.enrollment_date.strftime("%b %d, %Y") %></small></p>
+      </div>
+    <% end %>
+    <div class="card-footer d-flex justify-content-around">
+      <%= link_to 'Update Email', edit_email_student_path(student), class: 'btn btn-sm btn-outline-secondary' %>
+      <% if update_all_button %>
+        <%= link_to 'Update Student', edit_student_path(student), class: 'btn btn-sm btn-outline-secondary' %>
+      <% end %>
+      <%= button_to 'Delete Student', student_path(student), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-outline-danger' %>
+    </div>
+  </div>
+</div>

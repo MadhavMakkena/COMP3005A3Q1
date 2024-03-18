@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-4 mb-4 p-4">
+      <%= form_with(model: student, local: true) do |form| %>
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <% if @editable_email_only %>
+              <h5 class="card-title text-body" style="display: inline;"><%= student.full_name %></h5>
+              <span class="text-muted" style="font-size: 0.7em;"> - <%= student.student_id %></span>
+              <p class="card-text text-body"><%= student.enrollment_date.strftime("%b %d, %Y") %></p>
+            <% else %>
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <%= form.label :first_name %>
+                  <%= form.text_field :first_name, class: 'form-control', required: true %>
+                </div>
+                <div class="col-md-6 mb-3">
+                  <%= form.label :last_name %>
+                  <%= form.text_field :last_name, class: 'form-control', required: true %>
+                </div>
+              </div>
+            <% end %>
+
+            <div class="mb-3">
+              <%= form.label :email %>
+              <%= form.email_field :email, class: 'form-control', required: true %>
+            </div>
+
+            <% if !@editable_email_only %>
+              <div class="mb-3">
+                <%= form.label :enrollment_date %>
+                <br>
+                <%= form.date_select :enrollment_date, start_year: Time.zone.today.year - 100, end_year: Time.zone.today.year, default: Time.zone.today, class: 'form-control pr-3', required: true %>
+              </div>
+            <% end %>
+
+          </div>
+          <div class="card-footer d-flex justify-content-around">
+            <%= form.submit class: 'btn btn-outline-success' %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

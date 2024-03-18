@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  student_id: 1
+  first_name: MyString
+  last_name: MyString
+  email: MyString
+  enrollment_date: 2024-03-18
+
+two:
+  student_id: 1
+  first_name: MyString
+  last_name: MyString
+  email: MyString
+  enrollment_date: 2024-03-18
